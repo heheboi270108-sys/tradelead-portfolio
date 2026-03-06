@@ -1,0 +1,5 @@
+{
+  "name": "Swift Flow Plumbing",
+  "description": "Professional, modern plumbing services in London. 24/7 emergency repairs, boiler maintenance, and bathroom installations.",
+  "requestFramePermissions": ["geolocation"]
+}

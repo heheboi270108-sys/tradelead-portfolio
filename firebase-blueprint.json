@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "A plumbing service booking request.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "created_at": { "type": "string", "format": "date-time", "description": "Timestamp of creation" },
+        "name": { "type": "string", "description": "Customer name" },
+        "phone": { "type": "string", "description": "Customer phone number" },
+        "email": { "type": "string", "format": "email", "description": "Customer email address" },
+        "service_type": { "type": "string", "description": "Type of plumbing service requested" },
+        "preferred_date": { "type": "string", "format": "date", "description": "Requested date for service" },
+        "message": { "type": "string", "description": "Additional details or message" }
+      },
+      "required": ["name", "phone", "email", "service_type", "preferred_date"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of service bookings."
+    }
+  }
+}
