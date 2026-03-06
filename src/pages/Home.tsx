@@ -1,10 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Phone, ShieldCheck, Clock, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Phone, ShieldCheck, Clock, CheckCircle2, Droplets, Flame, Search, Bath, Hammer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TrustBadges from '../components/TrustBadges';
 import { SERVICES } from '../constants';
-import * as LucideIcons from 'lucide-react';
+
+const ICON_MAP: Record<string, any> = {
+  Droplets,
+  Flame,
+  Search,
+  Bath,
+  Hammer
+};
 
 export default function Home() {
   return (
@@ -78,7 +85,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {SERVICES.slice(0, 3).map((service, index) => {
-              const Icon = (LucideIcons as any)[service.icon];
+              const Icon = ICON_MAP[service.icon] || Droplets;
               return (
                 <motion.div
                   key={service.id}

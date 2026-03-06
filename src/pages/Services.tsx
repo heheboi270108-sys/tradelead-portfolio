@@ -1,9 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { SERVICES } from '../constants';
-import * as LucideIcons from 'lucide-react';
+import { Droplets, Flame, Search, Bath, Hammer, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+
+const ICON_MAP: Record<string, any> = {
+  Droplets,
+  Flame,
+  Search,
+  Bath,
+  Hammer
+};
 
 export default function Services() {
   return (
@@ -29,7 +36,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service, index) => {
-            const Icon = (LucideIcons as any)[service.icon];
+            const Icon = ICON_MAP[service.icon] || Droplets;
             return (
               <motion.div
                 key={service.id}
@@ -49,7 +56,7 @@ export default function Services() {
                 <ul className="space-y-3 mb-10">
                   {['Qualified Engineers', 'Guaranteed Work', 'Fast Response'].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-slate-500">
-                      <LucideIcons.CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                       {item}
                     </li>
                   ))}
